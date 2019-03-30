@@ -6,6 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.stereotype.Controller;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -18,9 +19,12 @@ public class WorkoutTrackerApplicationTests {
 
 	@GetMapping("")
 
-	public String hello() {
+	public ModelAndView hello() {
 
-		return "index";
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("name",  "형갑");
+		modelAndView.setViewName("index");
+		return modelAndView;
 	}
 }
 
